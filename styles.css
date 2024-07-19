@@ -29,7 +29,7 @@ header .container {
 }
 
 header .profile-photo {
-    margin-right: 80px;
+    margin-right: 20px;
 }
 
 header .profile-photo img {
@@ -105,12 +105,27 @@ nav a:hover {
     perspective: 1000px;
 }
 
-.animated-cube {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+.cube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    perspective: 1000px; /* Perspective for 3D effect */
+}
+
+.cube {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
     animation: rotateCube 4s infinite linear;
+    transform-style: preserve-3d;
 }
 
 @keyframes rotateCube {
@@ -161,68 +176,8 @@ footer {
 footer p {
     margin: 0;
 }
-/* Add these styles to your existing CSS file */
 
-.animation-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cube-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.cube {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    animation: rotateCube 4s infinite linear;
-    transform-style: preserve-3d;
-}
-
-.cube:nth-child(1) { animation-delay: 0s; }
-.cube:nth-child(2) { animation-delay: 0.5s; }
-.cube:nth-child(3) { animation-delay: 1s; }
-.cube:nth-child(4) { animation-delay: 1.5s; }
-.cube:nth-child(5) { animation-delay: 2s; }
-.cube:nth-child(6) { animation-delay: 2.5s; }
-.cube:nth-child(7) { animation-delay: 3s; }
-
-@keyframes rotateCube {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-/* Add these styles to your existing CSS file */
-
-.section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+/* Specific styles for sections */
 .section-header {
     display: flex;
     align-items: center;
@@ -247,9 +202,10 @@ footer p {
     font-size: 18px;
     line-height: 1.6;
     color: #666;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
+
 .highlight-blue {
     font-size: 24px; /* Adjust size as needed */
     font-weight: bold; /* Make the text bold */
@@ -257,75 +213,6 @@ footer p {
     letter-spacing: 1px; /* Add some spacing between letters for emphasis */
     text-transform: uppercase; /* Transform text to uppercase for added impact */
 }
-@keyframes rotateCube {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-.cube {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    animation: rotateCube 4s infinite linear;
-    transform-style: preserve-3d;
-}
-/* Existing CSS for rotating cube */
-.cube-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    perspective: 1000px; /* Perspective for 3D effect */
-}
-
-.cube {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    transform-style: preserve-3d;
-    animation: rotateCube 4s infinite linear;
-}
-
-@keyframes rotateCube {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    50% {
-        transform: rotateX(180deg) rotateY(180deg);
-    }
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-/* Adding a class for scrolling */
-.scroll-to-section {
-    animation: scrollToSection 1s forwards;
-}
-
-@keyframes scrollToSection {
-    from { transform: translateY(0); }
-    to { transform: translateY(100vh); }
-}
-/* Add these styles to your existing CSS file */
 
 #thank-you {
     text-align: center;
@@ -339,69 +226,37 @@ footer p {
 }
 
 .thank-you-content h2 {
-    font-size: 36px;
-    color: #ff6f61;
-    font-weight: bold;
-}
-/* General section styling */
-.section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    min-height: 100vh; /* Ensure each section takes up at least the full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Home Section */
-#home {
-    background-image: url('hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-/* About Section */
-#about, #projects, #contact, #thank-you {
-    background-color: #ffffff; /* White background for readability */
-}
-
-/* Thank You Section */
-#thank-you {
-    background-color: #f0f0f0; /* Light grey background for distinction */
-}
-
-.section h2 {
-    font-size: 36px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.section p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Specific styles for the "Thank You" section */
-.thank-you-content h2 {
     font-size: 48px; /* Larger font size for emphasis */
     color: #ff6f61;
     font-weight: bold;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .cube {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
     .section {
-        padding: 40px 15px;
+        padding: 50px 20px;
     }
 
     .section h2 {
-        font-size: 28px;
+        font-size: 2em;
     }
 
     .section p {
@@ -410,5 +265,55 @@ footer p {
 
     .thank-you-content h2 {
         font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .profile-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin: 5px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .cube {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 40px 10px;
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+    }
+
+    .section p {
+        font-size: 14px;
+    }
+
+    .thank-you-content h2 {
+        font-size: 24px;
     }
 }
