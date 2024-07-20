@@ -223,6 +223,7 @@ footer p {
 .btn {
     display: inline-block;
     padding: 10px 20px;
+    margin-bottom: 10px; /* Adjust the value as needed */      
     font-size: 1em;
     color: #fff;
     background-color: #ff7e5f;
@@ -443,4 +444,27 @@ header li {
         height: 40px;
         font-size: 0.8em;
     }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 5px; /* Distance from the bottom */
+    right: 5px; /* Distance from the right */
+    background-color: #ff7e5f; /* Button background color */
+    color: white; /* Icon color */
+    border-radius: 20%; /* Circular button */
+    padding: 10px;
+    text-decoration: none;
+    font-size: 10px; /* Size of the icon */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.back-to-top:hover {
+    background-color: #f59251; /* Darker background color on hover */
+}
+
+.back-to-top i {
+    margin: 0; /* Remove margin around the icon */
 }
