@@ -32,3 +32,12 @@ anime({
     duration: 1000,
     delay: anime.stagger(100)
 });
+
+// Smooth scroll to top
+document.querySelector('.back-to-top').addEventListener('click', function(event) {
+    event.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
