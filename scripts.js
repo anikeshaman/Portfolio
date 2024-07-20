@@ -1,44 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const cubeContainer = document.querySelector('.cube-container');
-    const sections = Array.from(document.querySelectorAll('.section'));
-    const homeSection = document.querySelector('#hero'); // Assuming the hero section should be used as 'home'
-    const thankYouSection = document.querySelector('#thank-you');
+document.addEventListener('DOMContentLoaded', () => {
+    const navbarLinks = document.querySelectorAll('#navbar a');
     
-    function scrollToSections() {
-        let index = 0;
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = document.querySelector(link.getAttribute('href'));
+            window.scrollTo({
+                top: targetSection.offsetTop - 60,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
 
-        function scrollNextSection() {
-            if (index < sections.length) {
-                window.scrollTo({
-                    top: sections[index].offsetTop - document.querySelector('header').offsetHeight, // Adjust for header height
-                    behavior: 'smooth'
-                });
+const nameDrop = document.querySelector('.name-drop');
+const nameArray = nameDrop.textContent.split('');
+nameDrop.innerHTML = '';
 
-                index++;
-                setTimeout(scrollNextSection, 4000); // Scroll every 4 seconds
-            } else {
-                // Show "Thank You" section
-                window.scrollTo({
-                    top: thankYouSection.offsetTop - document.querySelector('header').offsetHeight, // Adjust for header height
-                    behavior: 'smooth'
-                });
+nameArray.forEach((char, index) => {
+    const span = document.createElement('span');
+    span.textContent = char;
+    span.style.animationDelay = `${index * 0.1}s`;
+    nameDrop.appendChild(span);
+});
 
-                setTimeout(() => {
-                    // Scroll back to the hero section after "Thank You"
-                    window.scrollTo({
-                        top: homeSection.offsetTop - document.querySelector('header').offsetHeight, // Adjust for header height
-                        behavior: 'smooth'
-                    });
-                }, 2000); // Show "Thank You" for 2 seconds
-            }
-        }
-
-        scrollNextSection();
-    }
-
-    // Start scrolling after rotating animation ends
-    setTimeout(() => {
-        cubeContainer.classList.add('scroll-to-section');
-        scrollToSections();
-    }, 4000); // 4 seconds pause
+anime({
+    targets: '.name-drop span',
+    translateY: [50, 0],
+    opacity: [0, 1],
+    easing: 'easeOutExpo',
+    duration: 1000,
+    delay: anime.stagger(100)
 });
